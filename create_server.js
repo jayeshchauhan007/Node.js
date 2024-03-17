@@ -16,13 +16,13 @@ const friends = [
         id: 2,
         name: 'yuvraj'
     }
-]
+];
 server.on('request', (req, res) => {
     // res.writeHead(200, {
     //     'Content-type': 'application/json'
     // });
     let params = req.url.split('/');
-    if (params[1] === 'freinds') {
+    if (params[1] === 'friends') {
         if (req.method === 'GET') {
 
             res.statusCode = 200;
@@ -64,4 +64,4 @@ server.on('request', (req, res) => {
 
 server.listen(PORT, () => {
     console.log('Listening to server at port : ' + PORT);
-})
+});
