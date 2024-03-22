@@ -1,7 +1,9 @@
 const express = require("express");
 const path = require("path");
+const bodyParser = require("body-parser");
 const friendsRouter = require("./routes/friends.router");
 const messagesRouter = require("./routes/messages.router");
+const signupRouter = require("./routes/signup.router");
 
 const app = express();
 app.set('view engine', 'hbs');
@@ -16,10 +18,12 @@ app.use((req, res, next) => {
 });
 app.use('/site', express.static(path.join(__dirname, 'public')));
 app.use(express.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 app.get('/', (req, res) => {
     res.render('index', {
-        title : "First Page",
+        title: "First Page",
         name: "Jayesh Chauhan",
         image: "/site/images/jayesh.jpeg"
     });
@@ -27,6 +31,7 @@ app.get('/', (req, res) => {
 
 app.use('/friends', friendsRouter);
 app.use('/messages', messagesRouter);
+app.use('/signup', signupRouter);
 
 app.listen(PORT, () => {
     console.log('Listening to server at port : ' + PORT);

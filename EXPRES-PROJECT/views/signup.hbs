@@ -1,0 +1,34 @@
+<div class="container">
+    <div class="signup_from">
+        <form action="" method="post" name="register" id="register">
+            <div class="form-group mb-2">
+                <label for="first_name" class="form-label">First Name</label>
+                <input type="text" name="first_name" id="first_name" value="" class="form-control">
+            </div>
+            <div class="form-group mb-2">
+                <label for="last_name" class="form-label">Last Name</label>
+                <input type="text" name="last_name" id="last_name" value="" class=" form-control">
+            </div>
+            <div class="form-group mb-2">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" name="email" id="email" value="" class="form-control">
+            </div>
+            <div class="form-group mb-2">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" name="password" id="password" value="" class="form-control" autocomplete="off">
+            </div>
+            <div class="form-group mb-2">
+                <label for="cpassword" class="form-label">Confirm password</label>
+                <input type="password" name="cpassword" id="cpassword" value="" class=" form-control" autocomplete="off">
+            </div>
+            <button type="submit" name="submit" id="submit" value="Submit" class="btn btn-sm btn-primary mt-2">Submit</button>
+        </form>
+    </div>
+    <div class="{{formdata}} mt-2">
+        First Name : {{firstname}} <br/>
+        Last Name : {{lastname}} <br/>
+        Email : {{email}} <br/>
+        Password : {{password}} <br/>
+        Confirm Password : {{cpassword}} <br/>
+    </div>
+</div>

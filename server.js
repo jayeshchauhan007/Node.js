@@ -22,7 +22,12 @@ server.on('request', (req, res) => {
     //     'Content-type': 'application/json'
     // });
     let params = req.url.split('/');
-    if (params[1] === 'friends') {
+    if (req.url === '/') {
+        res.setHeader('Content-type', 'text/plain');
+        const text = 'Hello World!';
+        res.write(text);
+        res.end();
+    } else if (params[1] === 'friends') {
         if (req.method === 'GET') {
 
             res.statusCode = 200;
@@ -48,7 +53,7 @@ server.on('request', (req, res) => {
         }
     } else if (params[1] === 'html') {
         res.setHeader('Content-type', 'text/html');
-        const html = '<h1>This is HTML</h1>';
+        const html = '<h1>This is HTML.</h1>';
         res.write(html);
         res.end();
     } else if (params[1] === 'text') {
